@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <appender name="mirrir-oauth2-provider-plugin" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${xnat.home}/logs/mirrir-oauth2-provider-plugin.log</file>
+        <encoder>
+            <pattern>%d [%t] %-5p %c - %m%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${xnat.home}/logs/mirrir-oauth2-provider-plugin.log.%d{yyyy-MM-dd}</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+    <logger name="org.nrg.mirrir.plugins.oauth" additivity="false" level="DEBUG">
+        <appender-ref ref="mirrir-oauth2-provider-plugin"/>
+    </logger>
+</configuration>
